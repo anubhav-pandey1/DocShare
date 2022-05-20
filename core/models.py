@@ -1,5 +1,7 @@
 from django.db import models
 
+from core.choices import AccessLevelChoices
+
 # Create your models here.
 
 
@@ -26,13 +28,13 @@ class Document(models.Model):
 
 class AccessLevel(models.Model):
 
-    name = models.CharField(
-        max_length=254, null=False, blank=False, unique=True)
+    id = models.IntegerField(primary_key=True, null=False,
+                             blank=False, unique=True, choices=AccessLevelChoices.LIST)
 
     description = models.TextField(max_length=512, null=True, blank=True)
 
     def __str__(self) -> str:
-        return self.name
+        return str(self.id)
 
 
 class Permission(models.Model):
