@@ -55,4 +55,4 @@ class Permission(models.Model):
         ]
 
     def __str__(self) -> str:
-        return f"Document {self.document_id}, User {self.user_id}, Access Level {self.access_level_id}"
+        return f"Document {self.document}, User {self.user}, Access Level {self.access_level}"
